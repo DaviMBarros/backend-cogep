@@ -34,4 +34,4 @@ export default class User {
             this.password = hashSync(this.password, 10)
         }
     }
-}
+};

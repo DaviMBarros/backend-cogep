@@ -1,5 +1,4 @@
 import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { date } from "zod";
 import User from "./users.entity";
 
 @Entity("activities")
@@ -22,12 +21,6 @@ export default class Activity {
     @CreateDateColumn({ type: "date" })
     createdAt: string;
 
-    @Column({ length: 120 })
-    password: string;
-
-    @Column({ length: 200 })
-    adress: string;
-
     @ManyToOne(() => User, (user) => user.activities, { onDelete: "CASCADE" })
     user: User
-}
+};
