@@ -6,4 +6,4 @@ import { activitiesCreateSchema, activitiesReadSchema } from "../schemas/activit
 export type ActivitiesCreate = z.infer<typeof activitiesCreateSchema>;
 export type ActivitiesRead = z.infer<typeof activitiesReadSchema>;
 export type ActivitiesUpate = DeepPartial<Activity>;
-export type ActivitiesRepository = Repository<Activity>
+export type ActivityRepository = Repository<Activity>

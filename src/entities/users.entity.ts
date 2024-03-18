@@ -23,6 +23,9 @@ export default class User {
     @Column({ length: 120 })
     password: string;
 
+    @Column({ default: false })
+    admin: boolean;
+
     @OneToMany(() => Activities, (activities) => activities.user)
     activities: Array<Activities>
 
