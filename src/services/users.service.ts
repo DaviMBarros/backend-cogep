@@ -1,5 +1,5 @@
 import User from "../entities/users.entity";
-import { UsersCreate, UsersReturn, UsersUpdate } from "../interfaces/users.interfaces";
+import { UsersCreate, UsersRead, UsersReturn, UsersUpdate } from "../interfaces/users.interfaces";
 import { userRepository } from "../repositories";
 import { usersReadSchema, usersReturnSchema } from "../schemas/users.schemas";
 
@@ -11,7 +11,9 @@ export const createUser = async (payload: UsersCreate): Promise<UsersReturn> => 
 };
 
 export const readUser = async (userId: number): Promise<UsersReturn> => {
-    const user = await userRepository.findOne({where: {id: userId}})
+    const user = await userRepository.findOne({where: {id: userId}, relations: {
+        activities: true
+    }})
 
     return usersReturnSchema.parse(user)
 };

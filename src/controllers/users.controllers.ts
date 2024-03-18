@@ -12,7 +12,7 @@ export const readUserController = async (req: Request, res: Response): Promise<R
     const id: number = Number(req.params.id)
     const users = await readUser(id)
 
-    return res.status(200).json(users)
+    return res.status(200).json(res.locals.user)
 }
 
 export const updateUserController = async (req: Request, res: Response): Promise<Response> => {

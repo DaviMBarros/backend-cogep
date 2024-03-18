@@ -1,6 +1,6 @@
 import {z} from "zod";
 
-export const usersSchema = z.object({
+export const activitiesSchema = z.object({
     id: z.number().positive(),
     name: z.string().max(45),
     description: z.string().max(300),
@@ -9,6 +9,6 @@ export const usersSchema = z.object({
     createdAt: z.string(),
 });
 
-export const activitiesCreateSchema = usersSchema.omit({ id: true, createdAt: true });
-export const activitiesUpdateSchema = usersSchema.partial(); 
-export const activitiesReadSchema = usersSchema.array();
+export const activitiesCreateSchema = activitiesSchema.omit({ id: true, createdAt: true });
+export const activitiesUpdateSchema = activitiesSchema.partial(); 
+export const activitiesReadSchema = activitiesSchema.array();
